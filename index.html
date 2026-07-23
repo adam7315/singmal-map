@@ -69,8 +69,10 @@ const DAYS = [
 ];
 
 const map = L.map('map');
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  {maxZoom:19, attribution:'&copy; OpenStreetMap'}).addTo(map);
+const gRoad = L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=zh-TW&x={x}&y={y}&z={z}',
+  {maxZoom:20, subdomains:['mt0','mt1','mt2','mt3'], attribution:'&copy; Google'}).addTo(map);
+const gSat = L.tileLayer('https://{s}.google.com/vt/lyrs=y&hl=zh-TW&x={x}&y={y}&z={z}',
+  {maxZoom:20, subdomains:['mt0','mt1','mt2','mt3'], attribution:'&copy; Google'});
 
 const overlays = {};
 const all = [];
@@ -98,7 +100,8 @@ DAYS.forEach(day=>{
 });
 
 map.fitBounds(all,{padding:[40,40]});
-L.control.layers(null, overlays, {collapsed:false, position:'topright'}).addTo(map);
+L.control.layers({"Google 地圖":gRoad,"Google 衛星":gSat}, overlays,
+  {collapsed:false, position:'topright'}).addTo(map);
 
 const lg = L.control({position:'bottomleft'});
 lg.onAdd = function(){

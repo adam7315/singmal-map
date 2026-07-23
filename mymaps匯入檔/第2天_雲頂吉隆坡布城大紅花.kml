@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>第2天_雲頂吉隆坡布城大紅花</name>
+<Style id="ico"><IconStyle><color>ff3182f5</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="lin"><LineStyle><color>ff3182f5</color><width>4</width></LineStyle></Style>
+<Placemark><name>第2天 路線</name><styleUrl>#lin</styleUrl><LineString><tessellate>1</tessellate><coordinates>101.793802,3.423901,0 101.711564,3.157469,0 101.689213,2.936070,0 101.873879,2.418492,0</coordinates></LineString></Placemark>
+<Placemark><name>第2天-1 雲頂 SkyAvenue（起點）</name><description>08:30出發</description><styleUrl>#ico</styleUrl><Point><coordinates>101.793802,3.423901,0</coordinates></Point></Placemark>
+<Placemark><name>第2天-2 雙峰塔 KLCC</name><description>10:00-11:45｜外觀、KLCC公園、Suria</description><styleUrl>#ico</styleUrl><Point><coordinates>101.711564,3.157469,0</coordinates></Point></Placemark>
+<Placemark><name>第2天-3 布城 粉紅清真寺</name><description>14:00-15:30｜避開12:30-14:00禮拜時段</description><styleUrl>#ico</styleUrl><Point><coordinates>101.689213,2.936070,0</coordinates></Point></Placemark>
+<Placemark><name>第2天-4 大紅花 Lexis Hibiscus Port Dickson</name><description>17:15入住｜海上花瓣別墅</description><styleUrl>#ico</styleUrl><Point><coordinates>101.873879,2.418492,0</coordinates></Point></Placemark>
+</Document></kml>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>第4天_吉隆坡麻六甲新加坡</name>
+<Style id="ico"><IconStyle><color>ffb41e91</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="lin"><LineStyle><color>ffb41e91</color><width>4</width></LineStyle></Style>
+<Placemark><name>第4天 路線</name><styleUrl>#lin</styleUrl><LineString><tessellate>1</tessellate><coordinates>101.716813,3.142407,0 102.249141,2.194081,0 102.248368,2.194829,0 103.608353,1.471234,0 103.859106,1.283758,0 103.863613,1.281568,0</coordinates></LineString></Placemark>
+<Placemark><name>第4天-1 金普頓 TRX（起點）</name><description>08:30出發</description><styleUrl>#ico</styleUrl><Point><coordinates>101.716813,3.142407,0</coordinates></Point></Placemark>
+<Placemark><name>第4天-2 麻六甲 荷蘭紅屋 Stadthuys</name><description>10:30-12:00｜基督堂、大鐘樓、聖保羅教堂</description><styleUrl>#ico</styleUrl><Point><coordinates>102.249141,2.194081,0</coordinates></Point></Placemark>
+<Placemark><name>第4天-3 雞場街 Jonker Street</name><description>13:00-14:00｜古董街、麻六甲河遊船</description><styleUrl>#ico</styleUrl><Point><coordinates>102.248368,2.194829,0</coordinates></Point></Placemark>
+<Placemark><name>第4天-4 馬新第二通道 Tuas Second Link</name><description>17:00-18:30通關｜傍晚為尖峰</description><styleUrl>#ico</styleUrl><Point><coordinates>103.608353,1.471234,0</coordinates></Point></Placemark>
+<Placemark><name>第4天-5 濱海灣金沙 Marina Bay Sands</name><description>20:15｜螺旋橋、精品名店</description><styleUrl>#ico</styleUrl><Point><coordinates>103.859106,1.283758,0</coordinates></Point></Placemark>
+<Placemark><name>第4天-6 濱海灣花園 Gardens by the Bay</name><description>超級樹燈光秀 19:45／20:45</description><styleUrl>#ico</styleUrl><Point><coordinates>103.863613,1.281568,0</coordinates></Point></Placemark>
+</Document></kml>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>第1天_桃園吉隆坡黑風洞雲頂</name>
+<Style id="ico"><IconStyle><color>ff4b19e6</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="lin"><LineStyle><color>ff4b19e6</color><width>4</width></LineStyle></Style>
+<Placemark><name>第1天 路線</name><styleUrl>#lin</styleUrl><LineString><tessellate>1</tessellate><coordinates>101.704660,2.754270,0 101.683604,3.237303,0 101.788149,3.412588,0 101.793802,3.423901,0</coordinates></LineString></Placemark>
+<Placemark><name>第1天-1 吉隆坡國際機場 KLIA T1</name><description>11:45抵達／13:30上車</description><styleUrl>#ico</styleUrl><Point><coordinates>101.704660,2.754270,0</coordinates></Point></Placemark>
+<Placemark><name>第1天-2 黑風洞 Batu Caves</name><description>15:30-16:20｜272階彩虹階梯</description><styleUrl>#ico</styleUrl><Point><coordinates>101.683604,3.237303,0</coordinates></Point></Placemark>
+<Placemark><name>第1天-3 清水岩廟 Chin Swee Caves Temple</name><description>17:25-18:05｜萬佛塔、雲海展望</description><styleUrl>#ico</styleUrl><Point><coordinates>101.788149,3.412588,0</coordinates></Point></Placemark>
+<Placemark><name>第1天-4 雲頂 SkyAvenue／飯店</name><description>18:35入住｜Genting Grand 或 RW Hotel</description><styleUrl>#ico</styleUrl><Point><coordinates>101.793802,3.423901,0</coordinates></Point></Placemark>
+</Document></kml>

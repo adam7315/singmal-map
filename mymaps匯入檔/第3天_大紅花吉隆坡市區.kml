@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>第3天_大紅花吉隆坡市區</name>
+<Style id="ico"><IconStyle><color>ff4bb43c</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="lin"><LineStyle><color>ff4bb43c</color><width>4</width></LineStyle></Style>
+<Placemark><name>第3天 路線</name><styleUrl>#lin</styleUrl><LineString><tessellate>1</tessellate><coordinates>101.873879,2.418492,0 101.698300,3.142532,0 101.697613,3.141472,0 101.698482,3.144909,0 101.700643,3.141844,0 101.693659,3.149061,0 101.695215,3.147120,0 101.709276,3.146121,0 101.716813,3.142407,0</coordinates></LineString></Placemark>
+<Placemark><name>第3天-1 大紅花（起點）</name><description>09:30出發</description><styleUrl>#ico</styleUrl><Point><coordinates>101.873879,2.418492,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-2 茨廠街 Petaling Street</name><description>13:15起｜以下六點步行圈</description><styleUrl>#ico</styleUrl><Point><coordinates>101.698300,3.142532,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-3 鬼仔巷 Kwai Chai Hong</name><description>彩繪巷弄</description><styleUrl>#ico</styleUrl><Point><coordinates>101.697613,3.141472,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-4 REX KL 復古迷宮書店</name><description>BookXcess 書海迷宮</description><styleUrl>#ico</styleUrl><Point><coordinates>101.698482,3.144909,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-5 默迪卡118 Merdeka 118</name><description>世界第二高樓｜WORD未排入，建議補</description><styleUrl>#ico</styleUrl><Point><coordinates>101.700643,3.141844,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-6 獨立廣場 Dataran Merdeka</name><description>蘇丹阿都沙末大廈</description><styleUrl>#ico</styleUrl><Point><coordinates>101.693659,3.149061,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-7 生命之河 River of Life</name><description>河川整治案例｜夜間燈光</description><styleUrl>#ico</styleUrl><Point><coordinates>101.695215,3.147120,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-8 亞羅街 Jalan Alor</name><description>18:15-20:15晚餐｜燒雞翼、沙嗲、魔鬼魚</description><styleUrl>#ico</styleUrl><Point><coordinates>101.709276,3.146121,0</coordinates></Point></Placemark>
+<Placemark><name>第3天-9 金普頓 Kimpton Naluria TRX</name><description>住宿｜2026/1/12開幕，466間房</description><styleUrl>#ico</styleUrl><Point><coordinates>101.716813,3.142407,0</coordinates></Point></Placemark>
+</Document></kml>

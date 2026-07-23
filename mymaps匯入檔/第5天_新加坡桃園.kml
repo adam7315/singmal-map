@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>第5天_新加坡桃園</name>
+<Style id="ico"><IconStyle><color>ffc88200</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="lin"><LineStyle><color>ffc88200</color><width>4</width></LineStyle></Style>
+<Placemark><name>第5天 路線</name><styleUrl>#lin</styleUrl><LineString><tessellate>1</tessellate><coordinates>103.854387,1.286745,0 103.855817,1.289793,0 103.871440,1.280517,0 103.989461,1.360208,0</coordinates></LineString></Placemark>
+<Placemark><name>第5天-1 魚尾獅公園 Merlion Park</name><description>08:30-10:00</description><styleUrl>#ico</styleUrl><Point><coordinates>103.854387,1.286745,0</coordinates></Point></Placemark>
+<Placemark><name>第5天-2 濱海藝術中心 Esplanade</name><description>步行串連｜國會大廈、舊高等法院</description><styleUrl>#ico</styleUrl><Point><coordinates>103.855817,1.289793,0</coordinates></Point></Placemark>
+<Placemark><name>第5天-3 濱海堤壩 Marina Barrage</name><description>10:20-11:20｜防洪蓄水工程，免費</description><styleUrl>#ico</styleUrl><Point><coordinates>103.871440,1.280517,0</coordinates></Point></Placemark>
+<Placemark><name>第5天-4 星耀樟宜 Jewel</name><description>12:00-13:30｜40公尺室內瀑布</description><styleUrl>#ico</styleUrl><Point><coordinates>103.989461,1.360208,0</coordinates></Point></Placemark>
+</Document></kml>
