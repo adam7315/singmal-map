@@ -10,12 +10,24 @@
   #map{position:absolute;top:0;bottom:0;left:0;right:0}
   .hdr{position:absolute;z-index:1000;top:10px;left:50px;background:rgba(255,255,255,.95);
        padding:8px 14px;border-radius:6px;box-shadow:0 1px 6px rgba(0,0,0,.3);font-size:15px;font-weight:700}
-  .legend{background:rgba(255,255,255,.96);padding:10px 12px;border-radius:6px;
-          box-shadow:0 1px 6px rgba(0,0,0,.3);font-size:13px;line-height:1.6;
-          max-height:82vh;overflow-y:auto;max-width:305px}
-  .legend .key{font-size:12px;color:#333;margin:2px 0 6px;padding-bottom:6px;border-bottom:1px solid #ddd}
+  .legend{background:rgba(255,255,255,.96);border-radius:6px;
+          box-shadow:0 1px 6px rgba(0,0,0,.3);font-size:13px;line-height:1.6;max-width:305px}
+  .legend .lg-head{display:flex;align-items:center;justify-content:space-between;
+          padding:8px 12px;border-bottom:1px solid #ddd;cursor:pointer;user-select:none}
+  .legend .lg-head b{font-size:14px}
+  .legend .lg-btn{border:none;background:#eee;border-radius:5px;width:26px;height:26px;
+          font-size:16px;line-height:1;cursor:pointer;color:#333;flex:0 0 auto}
+  .legend .lg-body{padding:6px 12px 10px;max-height:70vh;overflow-y:auto}
+  .legend.collapsed .lg-body{display:none}
+  .legend.collapsed .lg-head{border-bottom:none}
+  .legend .key{font-size:12px;color:#333;margin:4px 0 6px;padding-bottom:6px;border-bottom:1px solid #ddd}
   .legend .key b{margin-right:2px}
-  .legend .dh{font-weight:700;margin:9px 0 4px}
+  .legend details{margin:2px 0}
+  .legend summary{font-weight:700;margin:6px 0 4px;cursor:pointer;list-style:none;
+          display:flex;align-items:center;padding:4px 6px;border-radius:5px;background:#f4f4f4}
+  .legend summary::-webkit-details-marker{display:none}
+  .legend summary .car{margin-left:auto;font-size:11px;color:#888;transition:transform .15s}
+  .legend details[open] summary .car{transform:rotate(90deg)}
   .legend .dh i{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:6px;vertical-align:-1px}
   .legend .st{font-size:12px;line-height:1.45;padding-left:2px;color:#222;display:flex;align-items:flex-start}
   .legend .st .sh{flex:0 0 16px;width:16px;height:16px;margin-right:5px;color:#fff;font-size:10px;
@@ -36,7 +48,11 @@
   .leaflet-popup-content{font-size:14px;line-height:1.6;margin:10px 12px}
   .leaflet-popup-content b{font-size:15px}
   .leaflet-popup-content .d{color:#666;font-size:12px}
-  @media(max-width:600px){.hdr{font-size:12px;left:50px;right:10px}.legend{font-size:12px;max-width:230px}}
+  @media(max-width:600px){
+    .hdr{font-size:12px;left:50px;right:10px}
+    .legend{font-size:12px;max-width:64vw}
+    .legend .lg-body{max-height:42vh}
+  }
 </style>
 </head>
 <body>
@@ -131,36 +147,55 @@ map.fitBounds(all,{padding:[40,40]});
 L.control.layers({"Google 地圖":gRoad,"Google 衛星":gSat}, overlays,
   {collapsed:false, position:'topright'}).addTo(map);
 
+const isPhone = window.innerWidth <= 600;
 const lg = L.control({position:'bottomleft'});
 lg.onAdd = function(){
   const d = L.DomUtil.create('div','legend');
   L.DomEvent.disableScrollPropagation(d);
   L.DomEvent.disableClickPropagation(d);
-  let h = '<b>行程時刻表</b>';
-  h += '<div class="key"><b style="color:#555">●</b>景點　'+
+  // 手機預設整盒收合，避免擋住地圖
+  if(isPhone) d.classList.add('collapsed');
+
+  let b = '<div class="key"><b style="color:#555">●</b>景點　'+
        '<b style="color:#555">◆</b>住宿／機場　'+
        '<b style="color:#555">◌</b>關卡　'+
        '<span style="color:#888;font-style:italic">🍴用餐時段</span></div>';
-  DAYS.forEach(day=>{
-    h += `<div class="dh"><i style="background:${day.color}"></i>${day.name}</div>`;
+  DAYS.forEach((day,di)=>{
+    // 手機預設每日收合；電腦預設展開
+    const openAttr = isPhone ? '' : ' open';
+    b += `<details${openAttr}><summary><i style="background:${day.color}"></i>`+
+         `${day.name}<span class="car">▶</span></summary><div class="dbody">`;
     let n=0;
     day.pts.forEach(p=>{
       const [nm,lat,lng,time,move,type,note] = p;
       if(type==='meal'){
-        h += `<div class="meal">🍴 ${nm.replace(/（.*?）/,'')} ${time}${note?'（'+note+'）':''}</div>`;
+        b += `<div class="meal">🍴 ${nm.replace(/（.*?）/,'')} ${time}${note?'（'+note+'）':''}</div>`;
         return;
       }
-      if(move && move!=='—') h += `<div class="mv">🚌 ${move}</div>`;
+      if(move && move!=='—') b += `<div class="mv">🚌 ${move}</div>`;
       n++;
       const sc = shapeClass[type];
       const inner = (type==='hotel') ? `<span>${n}</span>` : n;
-      h += `<div class="st"><span class="sh ${sc}" style="background:${day.color}">${inner}</span>`+
+      b += `<div class="st"><span class="sh ${sc}" style="background:${day.color}">${inner}</span>`+
            `<span class="nm">${nm}</span><span class="tm">${time.split('｜')[0]}</span></div>`;
     });
+    b += '</div></details>';
   });
-  h += '<div style="color:#666;font-size:11px;margin-top:8px">'+
+  b += '<div style="color:#666;font-size:11px;margin-top:8px">'+
        '餐食只留時段、地點由旅行社安排；點地圖圖示看詳情</div>';
-  d.innerHTML = h;
+
+  d.innerHTML =
+    '<div class="lg-head"><b>行程時刻表</b>'+
+    '<button class="lg-btn" title="收合／展開">'+(isPhone?'▸':'▾')+'</button></div>'+
+    '<div class="lg-body">'+b+'</div>';
+
+  // 整盒收合／展開（點標題列或按鈕都可）
+  const head = d.querySelector('.lg-head');
+  const btn  = d.querySelector('.lg-btn');
+  head.addEventListener('click',function(){
+    const collapsed = d.classList.toggle('collapsed');
+    btn.textContent = collapsed ? '▸' : '▾';
+  });
   return d;
 };
 lg.addTo(map);
